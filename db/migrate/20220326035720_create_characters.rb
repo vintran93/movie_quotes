@@ -7,7 +7,6 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
       t.integer :likes
       t.integer :movie_id
 
-      t.timestamps
     end
   end
 end
