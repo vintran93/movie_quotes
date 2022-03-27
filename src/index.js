@@ -24,14 +24,14 @@ async function renderMovies() {
     attachClicksToLinks()
 }
 
-async function renderCharacters() {  
-    const characters = await apiService.fetchCharacters()
-    main.innerHTML = ""
-    characters.forEach(character => {
-        const newCharacter = new Character(character)
-        main.innerHTML += newCharacter.render()
-    })
-}
+// async function renderCharacters() {  
+//     const characters = await apiService.fetchCharacters()
+//     main.innerHTML = ""
+//     characters.forEach(character => {
+//         const newCharacter = new Character(character)
+//         main.innerHTML += newCharacter.render()
+//     })
+// }
 
 function displayCreateForm() {
     let formDiv = document.querySelector("#new-movie-form")
@@ -50,7 +50,7 @@ function displayCharacterForm(e) {
 
     let formDiv = document.querySelector("#add-character-div") 
     let html = `
-        <form>
+        <form id="character-create-form">
             <br>
             <input type="hidden" id="movieId" value="${e.target.dataset.id}">
             <label>Name:</label>
@@ -64,7 +64,11 @@ function displayCharacterForm(e) {
     `
     formDiv.innerHTML = html
 
-    document.querySelector('form').addEventListener('submit', createCharacter)    
+    document.querySelector('#character-create-form').addEventListener('submit', createCharacter)
+    document.querySelector('#add-character-div').addEventListener('submit', (e) => {
+        e.target.reset();
+    });
+
 }
 
 async function createMovie(e) {
@@ -85,7 +89,6 @@ async function createCharacter(e) {
     e.preventDefault()
 
     const movieId = document.querySelector("#add-character").dataset.id
-    let main = document.getElementById('main')
     let character = { 
         name: e.target.querySelector("#name").value,
         quote: e.target.querySelector("#quote").value,
@@ -96,9 +99,8 @@ async function createCharacter(e) {
 
     let data = await apiService.fetchCreateCharacter(character)
     let newCharacter = new Character(data)
-    main.innerHTML = newCharacter.renderCharacter() 
+    charactersContainer += newCharacter.renderCharacter() 
     attachClicksToCreateCharacter()
-    clearForm()
 }
 
 // display individual character once clicked
@@ -106,7 +108,8 @@ async function displayCharacter(e) {
     let id = e.target.dataset.id
     const data = await apiService.fetchCharacter(id)
     const character = new Character(data)
-    main.innerHTML = character.renderCharacter()
+    charactersContainer = character.renderCharacter()
+    
 }
 
 async function displayMovie(id){
@@ -127,7 +130,7 @@ async function displayMovie(id){
         attachClicksToCharactersLinks()
     }
     document.getElementById('add-character').addEventListener('click', displayCharacterForm)
-    clearForm()
+    
 }
 
 // function charactersInMovie() {
@@ -135,17 +138,17 @@ async function displayMovie(id){
 // }
 
 
-function deleteCharacter(){
+// function deleteCharacter(){
     
-    let characterId = parseInt(event.target.dataset.id) // turn string into integer
+//     let characterId = parseInt(event.target.dataset.id) // turn string into integer
 
-    fetch(`${baseURL}/characters/${characterId}`, {
-        method: "DELETE"
-    })
+//     fetch(`${baseURL}/characters/${characterId}`, {
+//         method: "DELETE"
+//     })
 
-    this.location.reload()
-    renderMovies
-}
+//     this.location.reload()
+
+// }
 
 function deleteMovie(){
     // debugger;

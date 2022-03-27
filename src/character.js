@@ -8,14 +8,14 @@ class Character {
         this.image = data.image;
     }
 
-    renderCharacters() {
-        return `
-        <li>
-        <a href="#" data-id="${this.id}">${this.title}</a> 
-        </li>
-        <br>
-        `
-    }
+    // renderCharacters() {
+    //     return `
+    //     <li>
+    //     <a href="#" data-id="${this.id}">${this.title}</a> 
+    //     </li>
+    //     <br>
+    //     `
+    // }
 
     renderCharacter() {
         const card = document.createElement("div");
@@ -35,12 +35,10 @@ class Character {
         
         characterName.textContent = this.name;
         characterQuote.textContent = this.quote;
-        
         characterLikes.textContent = "Likes: ";
         
         likesNum.className = "like-num";
         likesNum.textContent = this.likes;
-    
         likeBttn.className = "like-bttn";
         likeBttn.textContent = "♥";
 
@@ -66,7 +64,6 @@ class Character {
 
         deleteBttn.addEventListener("click", (e) => {
             e.stopPropagation();
-        
             fetch(`http://localhost:3000/characters/${this.id}`, {
             method: 'DELETE'
             })

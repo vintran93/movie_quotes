@@ -37,13 +37,9 @@ class Movie {
 
 // sorting by character/movie title alphabetical order
 
-// edit character/quote/movie
-
 // update character/movie
 
 // search bar
-
-// add likes
 
 // refactor
 

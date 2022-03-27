@@ -6,7 +6,7 @@ h1 a, h2 a, h3 a, h5 a, h6 a {
 
 h1 {
     font-family: "Verdana", sans-serif;
-    font-size: 48px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
     text-align:center;
@@ -55,7 +55,7 @@ a {
     border-bottom: solid 1px #ddd;
     color: black;
     font: black;
-    font-size: 1.25em;
+    font-size: 25px;
 }
 
 body {
@@ -94,8 +94,8 @@ li {
 }
 
 img {
-    width:200px;
-    height:175px;
+    width:250px;
+    height:250px;
     margin: auto;
 } 
 
@@ -122,19 +122,33 @@ img {
 
 .card {
     text-align: center;
-    border: grey solid 1px;
     padding: 1rem;
     width: 350px;
-    height: 500px;
-    display: inline-grid;
+    height: 550px;
     margin: 1rem 2rem;
     box-shadow: 3px 4px blue;
-    object-fit: cover;
-    background: #add8e6;
-    transition: all 0.8s ease;
-    position: relative;
+    background-color: #add8e6;
     transition: all 1s linear;
-    transform-style: preserve-3d;
     position: absolute;
+    align-items: stretch;
+    justify-items: start;
+}
+
+#characters-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: orange;
+    height: 100%;
+    width: 100%;
+}
+
+.text-muted {
+    font-size: 25px;
+}
+
+
+.center {
+    border: 5px solid rgb(41, 41, 233);
+    text-align: center;
 }
 
