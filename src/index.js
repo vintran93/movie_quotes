@@ -103,7 +103,7 @@ async function createCharacter(e) {
     attachClicksToCreateCharacter()
 }
 
-// display individual character once clicked
+// display individual character after clicked
 async function displayCharacter(e) {
     let id = e.target.dataset.id
     const data = await apiService.fetchCharacter(id)
@@ -112,6 +112,7 @@ async function displayCharacter(e) {
     
 }
 
+// display movie
 async function displayMovie(id){
     const data = await apiService.fetchMovie(id)
     const movie = new Movie(data)
@@ -133,21 +134,13 @@ async function displayMovie(id){
     
 }
 
-// function charactersInMovie() {
-//     document.querySelectorAll("li a").length
-// }
-
 
 // function deleteCharacter(){
-    
 //     let characterId = parseInt(event.target.dataset.id) // turn string into integer
-
 //     fetch(`${baseURL}/characters/${characterId}`, {
 //         method: "DELETE"
 //     })
-
 //     this.location.reload()
-
 // }
 
 function deleteMovie(){
@@ -176,6 +169,7 @@ function attachClicksToCharactersLinks() {
     })
 }
 
+
 function attachClicksToCreateCharacter() {
     const characters = document.querySelectorAll("li a")
     characters.forEach(character => {
@@ -183,6 +177,7 @@ function attachClicksToCreateCharacter() {
     })
 }
 
+// clear movie form on submission
 function clearForm() {
     let formDiv = document.querySelector('#new-movie-form')
     formDiv.innerHTML = ""

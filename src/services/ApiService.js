@@ -2,25 +2,30 @@ class ApiService {
     constructor() {
         this.baseURL = 'http://localhost:3000'
     } 
+    // used await/async to refactor vs. using .then and callbacks and for readability
 
+    // fetch all movies
     async fetchMovies() {
         let res = await fetch(this.baseURL + '/movies')
         let data = await res.json()
         return data
     }
 
+    // fetch an individual movie
     async fetchMovie(id) {
         let res = await fetch(this.baseURL + `/movies/${id}`)
         let data = await res.json()
         return data
     }
 
+    // fetch individual character
     async fetchCharacter(id) {
         let res = await fetch(this.baseURL + `/characters/${id}`)
         let data = await res.json()
         return data
     }
 
+    // create movie and post to database
     async fetchCreateMovie(movieData) {
 
         let configObj = {
@@ -37,6 +42,7 @@ class ApiService {
         return data
     }
 
+    // create character and post to database
     async fetchCreateCharacter(characterData) {
         let configObj = {
             method: 'POST',
@@ -52,6 +58,7 @@ class ApiService {
         return data
     }
 
+    // delete the character from database
     async fetchRemoveCharacter(id) {
         let configObj = {
             method: 'DELETE',
@@ -64,6 +71,7 @@ class ApiService {
         let res = await fetch(this.baseURL + `/characters/${id}`, configObj)
     }
 
+    // delete the movie from the database
     async fetchRemoveMovie(id) {
         let configObj = {
             method: 'DELETE',

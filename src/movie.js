@@ -1,10 +1,9 @@
 class Movie {
-    constructor(data){
+    constructor(data){ // create and initialize an object instance of that class
         this.id = data.id
         this.title = data.title
         this.characters = data.characters
     }
-
     // list the movies index
     render() {
         return `
@@ -13,7 +12,6 @@ class Movie {
         </li>
         ` 
     }
-
     // show the movie title and all the characters in the movie
     renderMovie() {
         return `
