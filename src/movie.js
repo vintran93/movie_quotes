@@ -24,6 +24,9 @@ class Movie {
             <div id="add-character-div">
 
             </div>
+
+            
+
         <br>
         <br>
         `
@@ -42,4 +45,8 @@ class Movie {
 // refactor
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+
+
+
 

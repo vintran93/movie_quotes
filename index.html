@@ -56,6 +56,37 @@
 
       </div> 
 
+      <br><br><br><br><br><br><br>
+      
+      <div>
+        <form id="user-comments-form">
+          <input id="user-comments-input"  type="text">
+          <input id="user-comments-submit"  type="submit" class="btn btn-primary">
+        </form>
+        
+        <p>Submitted comments will appear here inside this section below:</p>
+        
+        <div id="user-comments-div">
+          <script>  
+            const comment = document.getElementById('user-comments-input');
+            const submit = document.getElementById('user-comments-submit');
+            const post = document.getElementById('user-comments-div');
+    
+            function postComment(e) {
+              e.preventDefault();
+              post.innerHTML = comment.value;
+              
+              document.querySelector('#user-comments-form').reset();
+            }
+    
+            submit.addEventListener('click', postComment);
+
+          </script>
+        </div>
+        
+      </div>
+      
+
 
 
 
@@ -63,8 +94,6 @@
     <script src="src//movie.js"></script>
     <script src="src/services/ApiService.js"></script>
     <script src="src/index.js"></script>
-
-    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>-->
 
   </body>
 </html>

@@ -134,15 +134,6 @@ async function displayMovie(id){
     
 }
 
-
-// function deleteCharacter(){
-//     let characterId = parseInt(event.target.dataset.id) // turn string into integer
-//     fetch(`${baseURL}/characters/${characterId}`, {
-//         method: "DELETE"
-//     })
-//     this.location.reload()
-// }
-
 function deleteMovie(){
     // debugger;
     let movieId = parseInt(event.target.dataset.id) // turn string into integer
@@ -150,9 +141,11 @@ function deleteMovie(){
     fetch(`${baseURL}/movies/${movieId}`, {
         method: "DELETE"
     })
-
-    this.location.reload()
+    //
+    renderMovies();
+    renderMovies();
     
+    //this.location.reload() // not allowed single page apps; no page refreshes ** clear dom reattach initial item
 }
 
 function attachClicksToLinks() {
