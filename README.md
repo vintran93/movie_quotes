@@ -4,7 +4,7 @@ ruby version rails version
 
 This project consists of building a web application for movie quotes using Ruby on Rails on the backend and Javascript for the frontend.
 
-Movie Quuotes
+Movie Quotes
 
 In this project, we will build a Web App with the following technologies:
 
