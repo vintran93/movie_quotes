@@ -9,8 +9,9 @@ Movie Quuotes
 In this project, we will build a Web App with the following technologies:
 
 API
-Ruby on Rails
-Frontend (Inside /client folder)
+Ruby on Rails backend
+Javascript frontend
+
 
 React
 Technologies used
@@ -46,7 +47,8 @@ Contributions, issues and feature requests are welcome! Feel free to check issue
 
 Fork it (https://github.com/vintran93/movie_quotes/fork)
 Create your working branch (git checkout -b [choose-a-name])
-Commit your changes (git commit -am 'what this commit will fix/add/improve')
+git add .
+Commit your changes (git commit -m 'what this commit will fix/add/improve')
 Push to the branch (git push origin [chosen-name])
 Create a new pull request
 Contributors
